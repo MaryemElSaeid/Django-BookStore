@@ -1,0 +1,23 @@
+{% extends "layout/main.html" %}
+{% block title %} List Booklet {% endblock %}
+
+{% block body %}
+<h1> List all Booklets </h1>
+<br>
+<a href="{% url 'create' %}"> Create Booklet </a>
+
+{% for booklet in booklets %}
+   <h2>{{ booklet.title }}</h2>
+   <p>{{ booklet.content }}</p>
+   <a href="{% url 'edit' booklet.id %}"> Edit </a>
+   &nbsp;
+   <a href="{% url 'delete' booklet.id %}"> Delete </a>
+   &nbsp;
+   <a href="{% url 'show' booklet.id %}"> Show </a>
+ 
+   <hr>
+{% endfor %}
+
+
+
+{% endblock %}
