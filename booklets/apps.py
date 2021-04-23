@@ -4,3 +4,6 @@ from django.apps import AppConfig
 class BookletsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'booklets'
+    
+    def ready(self):
+        from . import signals 

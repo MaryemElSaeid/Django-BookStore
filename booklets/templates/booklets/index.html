@@ -3,6 +3,11 @@
 
 {% block body %}
 <h1> List all Booklets </h1>
+
+{% if request.user.is_authenticated %}
+<h3>Welcome {{ request.user }}</h3>
+{% endif %}
+
 <br>
 <a href="{% url 'create' %}"> Create Booklet </a>
 

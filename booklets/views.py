@@ -2,7 +2,11 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse 
 from .forms import BookletForm
 from .models import Booklet,Isbn
+from django.contrib.auth.decorators import login_required,permission_required
 
+
+@login_required
+@permission_required(["booklets.view_booklet"],raise_exception=True)
 def index(request):
     booklets = Booklet.objects.all()
     return render(request,"booklets/index.html",{
