@@ -28,7 +28,7 @@ class Summary(models.Model):
 
 class Booklet(models.Model):
     title=models.CharField(max_length=255,null="True",blank="True")
-    content=models.TextField(max_length=2048)
+    content=models.TextField(max_length=2048,null="True",blank="True")
     categories=models.ManyToManyField(Category)
     author=models.ForeignKey(User,null=True,blank=True,on_delete=models.CASCADE,related_name="booklets")
     isbn=models.OneToOneField(Isbn,on_delete=models.CASCADE,null=True,blank=True)
